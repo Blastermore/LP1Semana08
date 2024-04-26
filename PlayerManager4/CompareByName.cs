@@ -11,5 +11,9 @@ namespace PlayerManager4
         {
             this.order = order;
         }
+        public int Compare(Player player, Player other)
+        {
+            string.Compare(player.Name,other.Name)
+        }
     }
 }

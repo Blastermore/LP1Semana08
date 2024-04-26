@@ -51,7 +51,6 @@ namespace PlayerManager4 // >>> Change to PlayerManager2 for exercise 4 <<< //
                 // Show menu and get user option
                 ShowMenu();
                 option = Console.ReadLine();
-                playerList.Sort();
                 // Determine the option specified by the user and act on it
                 switch (option)
                 {
@@ -123,6 +122,18 @@ PRESS ONE OF THE NUMBERS
         
         private static void ListPlayers(IEnumerable<Player> playersToList)
         {   
+            Console.WriteLine("How do you want to list players?");
+            Console.Write(">");
+            string op = Console.ReadLine();
+            switch(op)
+            {
+                case "1"
+                    playerList.Sort();
+                case "2"
+                    playerToList.Sort(new CompareByName(false));
+                case "3"
+                    playerToList.Sort(new CompareByName(false));
+            }
             
             foreach(Player player in playersToList)
                 Console.WriteLine($"Name: {player.Name} | "+ 
