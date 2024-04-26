@@ -86,9 +86,14 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </summary>
         private void ShowMenu()
         {
-            // /////////////////// //
-            // COMPLETE ME PLEASE! //
-            // /////////////////// //
+            Console.WriteLine(@"---------------------------
+                                PRESS ONE OF THE NUMBERS
+                                ---------------------------
+                                1. INSERT PLAYER
+                                2. LIST ALL PLAYERS
+                                3. LIST PLAYERS WITH A HIGHER SCORE THAN YOU
+                                4. EXIT
+                                ---------------------------")
         }
 
         /// <summary>
@@ -96,9 +101,13 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </summary>
         private void InsertPlayer()
         {
-            // /////////////////// //
-            // COMPLETE ME PLEASE! //
-            // /////////////////// //
+            Console.WriteLine("INSERT PLAYER'S NAME")
+            Console.WriteLine(">")
+            string playerName = Console.ReadLine();
+            Console.WriteLine("INSERT PLAYER'S SCORE")
+            Console.WriteLine(">")
+            string playerScore = Console.ReadLine();
+            playerList.Add(new Player(playerName,playerScore))
         }
 
         /// <summary>
