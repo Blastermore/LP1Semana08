@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace PlayerManager2 // >>> Change to PlayerManager2 for exercise 4 <<< //
+namespace PlayerManager4 // >>> Change to PlayerManager2 for exercise 4 <<< //
 {
     /// <summary>
     /// The player listing program.
@@ -51,7 +51,7 @@ namespace PlayerManager2 // >>> Change to PlayerManager2 for exercise 4 <<< //
                 // Show menu and get user option
                 ShowMenu();
                 option = Console.ReadLine();
-
+                playerList.Sort();
                 // Determine the option specified by the user and act on it
                 switch (option)
                 {
@@ -120,8 +120,10 @@ PRESS ONE OF THE NUMBERS
         /// <param name="playersToList">
         /// An enumerable object of players to show.
         /// </param>
+        
         private static void ListPlayers(IEnumerable<Player> playersToList)
-        {
+        {   
+            
             foreach(Player player in playersToList)
                 Console.WriteLine($"Name: {player.Name} | "+ 
                                     $"{player.Name}'s score: {player.Score}");
