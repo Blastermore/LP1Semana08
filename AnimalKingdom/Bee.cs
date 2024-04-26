@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace AnimalKingdom
 {
-   public class Bee : Animal
+   public class Bee : Animal , ICanFly
     {
         public override string Sound()
         {
