@@ -5,8 +5,11 @@ using System.Threading.Tasks;
 
 namespace AnimalKingdom
 {
-    public class Bat
+    public class Bat : Animal , IMammal
     {
-        
+        public override string Sound()
+        {
+            return base.Sound() + "Screech";
+        }
     }
 }

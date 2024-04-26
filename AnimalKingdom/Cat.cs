@@ -1,6 +1,6 @@
 ﻿namespace AnimalKingdom
 {
-    public class Cat : Animal
+    public class Cat : Animal , IMammal
     {
         public override string Sound()
         {
