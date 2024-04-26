@@ -7,6 +7,6 @@ namespace AnimalKingdom
 {
     public interface IMammal
     {
-        int NumberOfNipples {get;} = 6;
+        public int NumberOfNipples {get;}
     }
 }

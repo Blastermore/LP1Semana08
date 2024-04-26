@@ -11,5 +11,7 @@ namespace AnimalKingdom
         {
             return base.Sound() + "BZZZZZZ";
         }
+        public int NumberOfWings{get;} = 2;
+
     }
 }
