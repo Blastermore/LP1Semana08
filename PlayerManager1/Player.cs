@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace PlayerManager1
 {
-    public class Player
+    public class Player 
     {
-        public Player(name, score)
+        public Player(string name, int score)
         {
             Name = name;
             Score = score;

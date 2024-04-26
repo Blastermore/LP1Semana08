@@ -86,14 +86,15 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </summary>
         private void ShowMenu()
         {
-            Console.WriteLine(@"---------------------------
-                                PRESS ONE OF THE NUMBERS
-                                ---------------------------
-                                1. INSERT PLAYER
-                                2. LIST ALL PLAYERS
-                                3. LIST PLAYERS WITH A HIGHER SCORE THAN YOU
-                                4. EXIT
-                                ---------------------------")
+            Console.WriteLine(@"
+---------------------------
+PRESS ONE OF THE NUMBERS
+---------------------------
+1. INSERT PLAYER
+2. LIST ALL PLAYERS
+3. LIST PLAYERS WITH A HIGHER SCORE THAN YOU
+4. EXIT
+---------------------------");
         }
 
         /// <summary>
@@ -101,13 +102,13 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </summary>
         private void InsertPlayer()
         {
-            Console.WriteLine("INSERT PLAYER'S NAME")
-            Console.WriteLine(">")
+            Console.WriteLine("INSERT PLAYER'S NAME");
+            Console.Write(">");
             string playerName = Console.ReadLine();
-            Console.WriteLine("INSERT PLAYER'S SCORE")
-            Console.WriteLine(">")
-            string playerScore = Console.ReadLine();
-            playerList.Add(new Player(playerName,playerScore))
+            Console.WriteLine("INSERT PLAYER'S SCORE");
+            Console.Write(">");
+            int playerScore = int.Parse(Console.ReadLine());
+            playerList.Add(new Player(playerName,playerScore));
         }
 
         /// <summary>
@@ -121,9 +122,9 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </param>
         private static void ListPlayers(IEnumerable<Player> playersToList)
         {
-            foreach(Player in playersToList)
-                Console.WriteLine($"Player's name: {Player.Name}"+ 
-                                    $"Player's score: {Player.Score}");
+            foreach(Player player in playersToList)
+                Console.WriteLine($"Name: {player.Name} | "+ 
+                                    $"{player.Name}'s score: {player.Score}");
         }
 
         /// <summary>
@@ -134,7 +135,7 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
             Console.WriteLine("INSERT SCORE CEILING");
             Console.WriteLine(">");
             int scoreMin = int.Parse(Console.ReadLine());
-            IEnumerate<Player> psl= GetPlayersWithScoreGreaterThan(scoreMin);
+            IEnumerable<Player> psl= GetPlayersWithScoreGreaterThan(scoreMin);
             ListPlayers(psl);
         }
 
@@ -147,7 +148,7 @@ namespace PlayerManager1 // >>> Change to PlayerManager2 for exercise 4 <<< //
         /// </returns>
         private IEnumerable<Player> GetPlayersWithScoreGreaterThan(int minScore)
         {
-            IEnumerable<Player> playerListFiltered = new IEnumerable<Player>();
+            List<Player> playerListFiltered = new List<Player>();
             foreach(Player player in playerList)
                 {
                     if(player.Score > minScore)
