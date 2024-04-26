@@ -153,10 +153,9 @@ PRESS ONE OF THE NUMBERS
                 {
                     if(player.Score > minScore)
                     {
-                        playerListFiltered.Add(player);
+                        yield return player;
                     }
                 }
-            return playerListFiltered;
         }
     }
 }
