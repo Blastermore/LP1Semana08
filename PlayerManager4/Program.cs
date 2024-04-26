@@ -120,19 +120,33 @@ PRESS ONE OF THE NUMBERS
         /// An enumerable object of players to show.
         /// </param>
         
-        private static void ListPlayers(IEnumerable<Player> playersToList)
+        private static void ListPlayers(List<Player> playersToList)
         {   
             Console.WriteLine("How do you want to list players?");
+                        Console.WriteLine(@"
+---------------------------
+PRESS ONE OF THE NUMBERS
+---------------------------
+1. DESCENDING SCORE
+2. ALPHABETICAL
+3. REVERSE-ALPHABETICAL
+---------------------------");
             Console.Write(">");
             string op = Console.ReadLine();
             switch(op)
             {
-                case "1"
-                    playerList.Sort();
-                case "2"
-                    playerToList.Sort(new CompareByName(false));
-                case "3"
-                    playerToList.Sort(new CompareByName(false));
+                case "1":
+                    playersToList.Sort();
+                    break;
+                case "2":
+                    playersToList.Sort(new CompareByName(true));
+                    break;
+                case "3":
+                    playersToList.Sort(new CompareByName(false));
+                    break;
+                default:
+                    break;
+
             }
             
             foreach(Player player in playersToList)
@@ -148,7 +162,7 @@ PRESS ONE OF THE NUMBERS
             Console.WriteLine("INSERT SCORE CEILING");
             Console.Write(">");
             int scoreMin = int.Parse(Console.ReadLine());
-            IEnumerable<Player> psl= GetPlayersWithScoreGreaterThan(scoreMin);
+            List<Player> psl= new List<Player> (GetPlayersWithScoreGreaterThan(scoreMin));
             ListPlayers(psl);
         }
 
