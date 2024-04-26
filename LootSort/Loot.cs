@@ -1,9 +1,11 @@
+using System;
+
 namespace LootSort
 {
     /// <summary>
     /// The Loot class should implement IComparable<Loot>
     /// </summary>
-    public class Loot : IComparable<T>
+    public class Loot : IComparable<Loot>
     {
         /// <summary>Type of loot.</summary>
         public LootType Kind { get; }
@@ -35,5 +37,24 @@ namespace LootSort
         /// </returns>
         public override string ToString() =>
             $"[{Kind,15}]\t{Value:f2}\t{Description}";
+
+        public int CompareTo(Loot other)
+        {
+            if (this.Kind == other.Kind)
+            {
+                if (this.Value == other.Value)
+                {
+                    return string.Compare(this.Description,other.Description);
+                }
+                else
+                {
+                   return (int)(other.Value - this.Value); 
+                }
+            }
+            else
+            {
+                return string.Compare(this.Kind.ToString(),other.Kind.ToString());
+            }
+        }
     }
 }
